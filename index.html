@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gomza — Pipeline Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Gomza / GTM Engineering</div>
+  <h1>What's your cold outbound <span class="accent">actually</span> worth?</h1>
+  <p class="sub">Move the sliders to match your funnel. Watch what a working outbound engine adds to your pipeline in real numbers, not vanity metrics.</p>
+
+  <div class="grid">
+
+    <!-- INPUTS -->
+    <div class="panel">
+      <div class="panel-title"><span>Your Inputs</span><span>01</span></div>
+
+      <div class="field">
+        <div class="field-label">
+          <span>Prospects contacted / month</span>
+          <span class="field-value" id="v-leads">500</span>
+        </div>
+        <input type="range" id="leads" min="100" max="3000" step="50" value="500">
+        <div class="field-hint">Volume of personalized outbound sent monthly</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">
+          <span>Reply rate</span>
+          <span class="field-value" id="v-reply">8%</span>
+        </div>
+        <input type="range" id="reply" min="1" max="25" step="0.5" value="8">
+        <div class="field-hint">% of prospects who respond to outbound</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">
+          <span>Reply → meeting rate</span>
+          <span class="field-value" id="v-meeting">30%</span>
+        </div>
+        <input type="range" id="meeting" min="5" max="70" step="1" value="30">
+        <div class="field-hint">% of replies converted into booked calls</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">
+          <span>Meeting → close rate</span>
+          <span class="field-value" id="v-close">20%</span>
+        </div>
+        <input type="range" id="close" min="5" max="60" step="1" value="20">
+        <div class="field-hint">% of booked calls that become customers</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">
+          <span>Average contract value</span>
+        </div>
+        <div class="dollar-field">
+          <span>$</span>
+          <input type="number" id="acv" value="6000" min="0" step="100">
+          <span class="suffix">/ year</span>
+        </div>
+        <div class="field-hint">Annual value of a typical closed customer</div>
+      </div>
+    </div>
+
+    <!-- OUTPUT -->
+    <div class="panel">
+      <div class="panel-title"><span>Projected Funnel</span><span>02</span></div>
+
+      <div class="funnel">
+        <div class="funnel-row">
+          <div class="funnel-label">Contacted</div>
+          <div class="funnel-track"><div class="funnel-fill" id="bar-leads" style="width:100%"></div></div>
+          <div class="funnel-count" id="n-leads">500</div>
+        </div>
+        <div class="funnel-row">
+          <div class="funnel-label">Replies</div>
+          <div class="funnel-track"><div class="funnel-fill" id="bar-replies"></div></div>
+          <div class="funnel-count" id="n-replies">40</div>
+        </div>
+        <div class="funnel-row">
+          <div class="funnel-label">Meetings</div>
+          <div class="funnel-track"><div class="funnel-fill amber" id="bar-meetings"></div></div>
+          <div class="funnel-count" id="n-meetings">12</div>
+        </div>
+        <div class="funnel-row">
+          <div class="funnel-label">Deals won</div>
+          <div class="funnel-track"><div class="funnel-fill amber" id="bar-deals"></div></div>
+          <div class="funnel-count" id="n-deals">2.4</div>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">Meetings / month</div>
+          <div class="metric-value" id="m-meetings">12</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">New customers / month</div>
+          <div class="metric-value" id="m-deals">2.4</div>
+        </div>
+        <div class="metric full">
+          <div class="metric-label">Projected ARR added, 12 months</div>
+          <div class="metric-value" id="m-arr">$172,800</div>
+        </div>
+      </div>
+
+      <p class="disclaimer">Estimates based on your inputs, assuming consistent monthly volume and conversion rates. Actual results depend on ICP fit, message quality, and list accuracy — this models the math, not a guarantee.</p>
+
+      <a class="cta" href="https://calendly.com/gomza/intro" target="_blank" rel="noopener">
+        <span>Build this engine for real</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+
+  <footer>GOMZA — GTM ENGINEERING FOR SAAS</footer>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
